@@ -1,0 +1,58 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<navbar></navbar>
+
+<div class="container page_container" id="page_container">
+  <div class="container" id="main">
+    <div class="row">
+      <h1>Pagamento</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <img width="200px" height="200px" data-ng-src="data:image/png;base64, {{ $ctrl.wallet.qrcode }}"/>
+      </div>
+
+      <div class="col-md-9">
+        <br>
+        <div class="row align-items-end">
+          <div class="col-sm-12 align-self-center">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"
+                     readonly="true"
+                     id="wallet_qrcode"
+                     ng-model="$ctrl.address"
+                     >
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" ng-click="$ctrl.copyAddress()">Copy
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-end">
+          <div class="col-sm-3">
+            <div class="">Valor:</div>
+            <div><label id="idPrice">{{ $ctrl.price }}</label></div>
+          </div>
+          <div class="col-sm-1">
+            <div class="invisible label">Para</div>
+            <div class=""><i class="material-icons">keyboard_arrow_right</i></div>
+          </div>
+          <div class="col-sm-6">
+            <div class="">Endereço:</div>
+            <div class=""><label id="idAddress">{{$ctrl.address}}</label></div>
+          </div>
+          <div class="col-sm-2">
+            <div class="">Tempo:</div>
+            <div class=""><label>{{ $ctrl.timeLeft }}</label></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footersite></footersite>

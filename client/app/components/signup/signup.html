@@ -1,0 +1,34 @@
+<navbar></navbar>
+
+<div class="container page_container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <br>
+      <form id="idSignUpForm" class="form" method="post" ng-submit="$ctrl.saveUser()">
+
+        <h1 class="h3 mb-3 font-weight-normal align-field">Sign up</h1>
+
+        <div class="form-group">
+          <label for="inputEmail">Full name</label>
+          <input type="text" id="inputName" class="form-control" placeholder="full name" required="True" ng-model="$ctrl.name">
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="email@example.com" required="True" ng-model="$ctrl.email">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="password" required="True" ng-model="$ctrl.password">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="btn-register" type="submit">Register</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<footersite></footersite>
+

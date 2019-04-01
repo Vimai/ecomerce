@@ -1,0 +1,38 @@
+<navbar></navbar>
+
+<div class="container page_container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <br>
+      <form id="idForm" class="form" method="post" ng-submit="$ctrl.login()">
+
+        <h1 class="h3 mb-3 font-weight-normal align-field">Please sign in</h1>
+
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="email@example.com" required="True"
+                 ng-model="$ctrl.email">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="True">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="btn-login" type="submit">Sign in</button>
+
+        <p>{{$ctrl.message}}</p>
+
+        <div class="align-field">
+          <br>
+          Don’t have an account?
+          <a href="/signup">Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footersite></footersite>
+
+

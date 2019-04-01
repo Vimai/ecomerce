@@ -1,0 +1,184 @@
+<navbar></navbar>
+<div class="container page_container">
+  <br>
+  <form id="payment" class="form" method="post" ng-submit="$ctrl.createOrder()">
+
+    <div class="col-sm-12">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                                  <span class="icon">
+                                      <i class="'fa fa-book"></i>
+                                  </span>
+                  <span class="text">Payment</span>
+                </h4>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="control-label" for="id_name">Name</label>
+                  <input type="text" name="name" maxlength="150" class="form-control" placeholder="Name" title=""
+                         required="true" id="id_name" ng-model="$ctrl.name">
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label" for="id_email">E-mail</label>
+                  <input type="text" name="email" maxlength="150" class="form-control" placeholder="E-mail" title=""
+                         required="true" id="id_email" ng-model="$ctrl.email">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                              <span class="icon">
+                                  <i class="'fa fa-book"></i>
+                              </span>
+                <span class="text">Shopping Cart</span>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <div class="container">
+                <div class="col-sm-12">
+                  <div class="container">
+                    <br>
+                    <table id="cart" class="table table-hover table-condensed">
+                      <thead>
+                      <tr>
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td data-th="Product">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <h5 class="nomargin">{{ $ctrl.list.name }}</h5>
+                            </div>
+                          </div>
+                        </td>
+                        <td data-th="Price">{{ $ctrl.list.value }}</td>
+                        <td data-th="Quantity">
+                          <p class="text-center">1</p>
+                        </td>
+                        <td data-th="Subtotal" class="text-center">{{ $ctrl.list.value }}</td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <td colspan="3" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center">
+                          <strong>Total {{ $ctrl.list.value }}</strong></td>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+
+
+        </div>
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                                    <span class="icon">
+                                        <i class="fa fa-credit-card"></i>
+                                    </span>
+                <span class="text">Payment method</span>
+              </h4>
+              <p class="description">Please select the preferred payment method to use on this order.</p>
+            </div>
+            <div class="panel-body">
+              <div id="payment_method_list" class="" >
+                <div class="radio-input radio">
+                  <label for="wp_business">
+                    <input type="radio" ng-model="$ctrl.payOption" value="wp_business" id="wp_business">
+                    <img class="payment-image" src="" style="display: none;">
+                    Credit Card / Debit Card
+                    <span class="price"></span>
+                  </label>
+                </div>
+
+                <div class="radio-input radio">
+                  <label for="xpay">
+                    <input type="radio" ng-model="$ctrl.payOption" value="xpay" id="xpay">
+                    <img class="payment-image" src="" style="display: none;">
+                    3xPay
+                    <span class="price"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="row btn-group btn-group-toggle collapse"
+                   data-toggle="buttons"
+                   id="collapseCoins2">
+                <div class="col-xs-12 col-sm-6">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary btn-block active">
+                      <input type="checkbox" autocomplete="off"> BTC
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary btn-block">
+                      <input type="checkbox" autocomplete="off"> LTC
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary btn-block">
+                      <input type="checkbox" autocomplete="off"> ETH
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse" id="collapseCoins"  uib-collapse="$ctrl.paymentCoinCollapse">
+                <label>Select your payment coin: </label>
+                <select class="custom-select custom-select-lg mb-3" id="coinSelector">
+                  <option selected value="1">BTC</option>
+                  <option value="2">ETH</option>
+                  <option value="3">LTC</option>
+                </select>
+              </div>
+
+              <button id="qc_confirm_order" ng-class="{'disabled': !$ctrl.aux}" type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="!$ctrl.aux">
+                Confirm Order
+              </button>
+              <br>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
+
+<footersite></footersite>

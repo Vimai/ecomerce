@@ -1,0 +1,11 @@
+@import "common/common";
+
+.app {
+  height: 100%;
+  background-color: white;
+}
+
+.page_container {
+    min-height: calc(100vh - 102px - 102px);
+}
+
